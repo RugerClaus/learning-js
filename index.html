@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="error"></div>
+    <form action="/" method="GET" id="form">
+        <div>
+            <label for="Email">Email</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const name = document.getElementById('name');
+        const pass = document.querySelector('#password');
+        const form = document.querySelector('#form');
+        const errorElement = document.querySelector('#error');
+
+        form.addEventListener('submit', (e) => {
+            let messages = [];
+            const input = name.value;
+            let regex = /@[a-z].[a-z]/;
+            let result = regex.test(name.value);
+            console.log(result)
+            if(result == false || name.value.length < 0 || name.value === ''){
+                e.preventDefault();
+                errorElement.innerHTML = 'Please enter a full email address'
+                messages.push(errorElement);
+            }
+        })
+
+    </script>
+</body>
+</html>

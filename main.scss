@@ -1,0 +1,33 @@
+$colors: (
+    primary: #005dff,
+    primary-light: lighten(#005dff, 40%),
+    primary-dark: darken(#005dff, 40%),
+    accent:#fff6bb
+);
+$padding: 15px;
+$borders: 15px;
+
+$desktop: 840px;
+@mixin desktop {
+    @media(min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+body,html {
+    height: 100%;
+}
+
+body {
+    font-family: helvetica;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #canvas  {
+        z-index: 100;
+        border: 1px solid black;
+        box-shadow: black 20px 10px 50px;
+      }
+}
